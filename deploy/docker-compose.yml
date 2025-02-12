@@ -1,0 +1,62 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:15
+    restart: always
+    container_name: qce_postgres
+    environment:
+      POSTGRES_USER: qceuser
+      POSTGRES_PASSWORD: qcepass
+      POSTGRES_DB: qcehub
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - qce_network
+
+  redis:
+    image: redis:alpine
+    restart: always
+    container_name: qce_redis
+    ports:
+      - "6379:6379"
+    networks:
+      - qce_network
+
+  backend:
+    build: ../backend
+    container_name: qce_backend
+    restart: always
+    depends_on:
+      - postgres
+      - redis
+    environment:
+      DATABASE_URL: postgres://qceuser:qcepass@postgres:5432/qcehub
+      REDIS_URL: redis://qce_redis:6379
+      NODE_ENV: production
+    ports:
+      - "3001:3001"
+    networks:
+      - qce_network
+
+  frontend:
+    build: ../frontend
+    container_name: qce_frontend
+    restart: always
+    depends_on:
+      - backend
+    environment:
+      NEXT_PUBLIC_API_URL: http://backend:3001
+    ports:
+      - "3000:3000"
+    networks:
+      - qce_network
+
+volumes:
+  postgres_data:
+
+networks:
+  qce_network:
+    driver: bridge

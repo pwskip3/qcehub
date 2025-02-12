@@ -1,0 +1,42 @@
+/* Base Styles */
+@import "global.css";
+
+@media (max-width: 640px) {
+  /* Mobile Styles */
+  .container {
+    @apply px-4;
+  }
+  .grid-layout {
+    @apply grid grid-cols-1 gap-4;
+  }
+  .hide-mobile {
+    @apply hidden;
+  }
+  .text-lg {
+    @apply text-base;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  /* Tablet Styles */
+  .grid-layout {
+    @apply grid grid-cols-2 gap-6;
+  }
+  .sidebar {
+    @apply w-1/3;
+  }
+}
+
+@media (min-width: 1025px) {
+  /* Desktop Styles */
+  .container {
+    @apply max-w-screen-lg mx-auto px-6;
+  }
+  .grid-layout {
+    @apply grid grid-cols-3 gap-8;
+  }
+  .sidebar {
+    @apply w-1/4;
+  }
+  .show-desktop {
+    @apply blo

@@ -1,0 +1,12 @@
+.fade-in {
+    @apply opacity-0 transition-opacity duration-500;
+  }
+  
+  .fade-in.visible {
+    @apply opacity-100;
+  }
+  
+  .scale-hover:hover {
+    @apply transform scale-105 transition-transform duration-300;
+  }
+  

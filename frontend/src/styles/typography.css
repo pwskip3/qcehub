@@ -1,0 +1,18 @@
+/* Importing Google Fonts for Modern UI */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap");
+
+html {
+  font-family: "Inter", sans-serif;
+}
+
+p {
+  @apply text-lg leading-relaxed;
+}
+
+strong {
+  @apply font-bold text-gray-100;
+}
+
+code {
+  @apply font-mono bg-gray-800 px-2 py-1 rounded-md text-yellow-300;
+}

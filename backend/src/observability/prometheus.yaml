@@ -1,0 +1,28 @@
+global:
+  scrape_interval: 5s   # How often to collect metrics
+  evaluation_interval: 5s # How often to evaluate rules
+
+scrape_configs:
+  - job_name: "qce-backend"
+    static_configs:
+      - targets: ["localhost:3001"]  # Monitors QCE backend API
+
+  - job_name: "ai-engine"
+    static_configs:
+      - targets: ["localhost:4000"]  # Monitors AI model response times
+
+  - job_name: "quantum-security"
+    static_configs:
+      - targets: ["localhost:5000"]  # Monitors post-quantum authentication security
+
+  - job_name: "qce-database"
+    static_configs:
+      - targets: ["localhost:5432"]  # Monitors database performance
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets: ["localhost:9093"]  # Prometheus alert system
+
+rule_files:
+  - "alerts.yml"  # Custom alerting rules for AI model issues

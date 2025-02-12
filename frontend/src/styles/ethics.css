@@ -1,0 +1,8 @@
+.ethics-alert {
+    @apply bg-red-500 text-white p-4 rounded-md;
+  }
+  
+  .ethics-warning {
+    @apply bg-yellow-500 text-black p-4 rounded-md;
+  }
+  

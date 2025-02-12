@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gray-900 text-white font-sans antialiased leading-relaxed;
+}
+
+a {
+  @apply text-blue-400 hover:text-blue-300 transition-colors duration-200;
+}
+
+h1 {
+  @apply text-4xl font-extrabold tracking-tight;
+}
+
+h2 {
+  @apply text-3xl font-bold;
+}
+
+h3 {
+  @apply text-2xl font-semibold;
+}

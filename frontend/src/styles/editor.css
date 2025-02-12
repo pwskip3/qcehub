@@ -1,0 +1,8 @@
+.editor {
+    @apply w-full h-96 bg-gray-800 text-white font-mono p-4 rounded-md;
+  }
+  
+  .editor .cursor {
+    @apply bg-blue-500 w-1 h-5 animate-blink;
+  }
+  

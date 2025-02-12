@@ -1,0 +1,56 @@
+{
+    "dashboard": {
+      "id": null,
+      "title": "QCE Monitoring Dashboard",
+      "tags": ["ai", "quantum", "monitoring"],
+      "timezone": "browser",
+      "panels": [
+        {
+          "title": "API Response Time",
+          "type": "graph",
+          "targets": [
+            {
+              "expr": "rate(http_requests_total[5m])",
+              "legendFormat": "API Latency",
+              "interval": "5s"
+            }
+          ],
+          "gridPos": { "x": 0, "y": 0, "w": 12, "h": 4 }
+        },
+        {
+          "title": "AI Model Execution Time",
+          "type": "gauge",
+          "targets": [
+            {
+              "expr": "ai_execution_latency_seconds",
+              "legendFormat": "AI Latency"
+            }
+          ],
+          "gridPos": { "x": 0, "y": 5, "w": 12, "h": 4 }
+        },
+        {
+          "title": "Quantum Authentication Security",
+          "type": "stat",
+          "targets": [
+            {
+              "expr": "quantum_auth_failures_total",
+              "legendFormat": "Security Alerts"
+            }
+          ],
+          "gridPos": { "x": 0, "y": 10, "w": 12, "h": 4 }
+        },
+        {
+          "title": "Unethical AI Outputs Detected",
+          "type": "table",
+          "targets": [
+            {
+              "expr": "ai_compliance_violations_total",
+              "legendFormat": "Ethics Violations"
+            }
+          ],
+          "gridPos": { "x": 0, "y": 15, "w": 12, "h": 4 }
+        }
+      ]
+    }
+  }
+  

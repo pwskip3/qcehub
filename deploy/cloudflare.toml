@@ -1,0 +1,13 @@
+name = "qcehub"
+type = "javascript"
+account_id = "your-cloudflare-account-id"
+workers_dev = true
+route = "api.qcehub.com/*"
+zone_id = "your-zone-id"
+
+[env.production]
+name = "qcehub-prod"
+route = "api.qcehub.com/*"
+
+[build]
+command = "npm run build"
