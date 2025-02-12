@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write .",
-    "deploy": "vercel --prod"
+    "deploy": "vercel --prod",
+    "analyze": "next build && next export"
   },
   "dependencies": {
     "next": "^14.0.0",
@@ -19,12 +20,16 @@
     "jwt-decode": "^3.1.2",
     "zustand": "^4.3.2",
     "postcss": "^8.4.21",
-    "autoprefixer": "^10.4.14"
+    "autoprefixer": "^10.4.14",
+    "react-syntax-highlighter": "^15.5.0",
+    "swr": "^2.1.0",
+    "framer-motion": "^10.16.2"
   },
   "devDependencies": {
     "eslint": "^8.32.0",
     "prettier": "^3.0.0",
-    "eslint-config-next": "^14.0.0"
+    "eslint-config-next": "^14.0.0",
+    "vercel": "^41.1.0"
   },
   "engines": {
     "node": ">=18.0.0",
@@ -35,5 +40,19 @@
     "type": "git",
     "url": "https://github.com/pwskip3/qcehub.git"
   },
-  "author": "QCEHub Team"
+  "author": "QCEHub Team",
+  "keywords": [
+    "QCEHub",
+    "AI Code Editor",
+    "Quantum Computing",
+    "Post-Quantum Security",
+    "Next.js",
+    "TailwindCSS",
+    "AI-Powered Coding"
+  ],
+  "vercel": {
+    "buildCommand": "npm run build",
+    "outputDirectory": "out",
+    "ignoreBuildStep": false
+  }
 }
